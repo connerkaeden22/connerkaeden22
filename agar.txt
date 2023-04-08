@@ -1,0 +1,85 @@
+
+Tuesday's work:
+	today we are 
+finding out what the game is like
+making sure circularity is done
+making the circles random
+changing their size
+
+first play the game to understand what we will be doing, but don't play too long because, like, you have to do the rest of the work yo.
+
+open up your circularity project and make a copy of it, rename it to agario lite.html
+
+to make the circles spawn in random places do this:  (some of you may already have this)
+change the variables for the circles so that they are just empty arrays
+for example: var x = []
+after your variable declarations, but before your main function, make a for loop. the loop should run as many times as the number of circles you want
+in each loop, you will push a new random value to the variable, this will fill the array with random numbers. 
+copy this code:
+x.push(Math.random() * 100)
+
+Once you get them spawning, have each circle be a different size. you'll have to make a new variable called radius
+radius is the third variable in ctx.arc
+ctx.arc(x,y,radius,0,Math.PI * 2)
+
+once you get the circles spawning in random places with random sizes, copy and paste your new for loop below:
+
+var radius = []
+  for (var i = 0; i < 20; i = i + 1) {
+    x.push(Math.random() * 100)
+    x[i] = Math.random() * 60
+    y[i] = Math.random() * 60
+    xspeed[i] = Math.random() * 30
+    yspeed[i] = Math.random() * 30
+    color[i] = "hsl(" + Math. random()*360 + ",100%,50%)"
+    radius[i] =  Math.random() * 60
+  }
+
+Wednesday's work:
+learn how Math.random() works
+use that to have the circles spawn off screen
+
+you'll need to remove your four if statements that make the circles bounce. Those will break things if we leave them
+
+pick one side of the screen, or all four if you're brave, and have that be where the circles will spawn from the examples will use the left side.
+
+if the circles spawn from the left side, they must move to the right, change your random value for loop so that the circles only move to the right 
+side of the screen. Hint,  direction is related to speed
+once you have that working, change the x position random value so that it starts 150 pixels away from the left side of the screen
+if your circles start off the left side of the screen and move to the right, copy and paste the code from the same for loop as yesterday below:
+
+
+Thursday's work:
+have the circles "respawn" back on the screen when they go off screen (now is the moment my "brave" students get to struggle)
+if the circles go off the screen, change all their variables and put them back where they started, off the left side of the screen.
+
+
+Make three if's, one for each side of the screen that your circle dosn't spawn from, that detects if your circle has gone off screen. 
+If the circle goes off the screen, change all of its variables to new random values, including its x and y, so that it "respawns" on the left side of
+ the screen looking like a different circle.
+once this is done copy and paste the new if statements
+
+
+
+How To Section:
+
+how to do random numbers:
+Math.random() creates a random number between, but not including, 0 and 1. 
+You can multiply and add to change this number
+multiply to increase the 1, thus increasing the range
+multiply by 20 for a number between 0 and 20, multiply by a hundred for a number between 0 and 100, multiply by -43 for a number between 0 and -43
+You multiply to stretch the number, and you add and subtract to move the numbers left and right. 
+first rule, always multiply before you add or subtract
+to make a number between 15 and 25
+those numbers are 10 apart, so multiply by 200
+the smaller number is 15 away from 0, so add 15
+Math.random() * 10 + 5
+to make a number between -10 and 20
+those numbers are 30 apart, so multiply by 30
+the smaller number is 10 away from 0, so subtract 10
+				Math.random() * 30 - 10
+to make a number between -100 and 100
+those numbers are 200 apart, so multiply by 200
+the smaller number is 100 away from 0, so subtract 100
+				Math.random() * 200 - 100
+

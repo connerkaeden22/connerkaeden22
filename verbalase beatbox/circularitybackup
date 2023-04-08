@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"> </canvas>
+</body>
+</html>
+<script>
+document.getElementById("canvas")
+var canvas = document.getElementById("canvas")
+var x= [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200]
+var y= [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200]
+var ctx = canvas.getContext("2d")
+var xspeed = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+var yspeed = [4, 6, 12, 16, 12, 3, 1, 63, 18, 21, 24, 54, 36, 17, 53, 25, 27, 11, 13, 20]
+function draw(){
+for (var i = 0; i < x.length; i = i + 1){
+  ctx.fillRect(x[i], y[i], 10, 10)
+  
+  x[i] +=xspeed[i]
+  y[i] +=yspeed[i]
+  if(x[i]>=800){
+    xspeed[i] *= -1
+  } 
+  if(x[i]<=0){
+    xspeed[i] *= -1
+  } 
+  if(y[i]>=800){
+    yspeed[i] *= -1
+  } 
+  if(y[i]<=0){
+    yspeed[i] *= -1
+  }
+}
+}
+setInterval(draw, 30)
+</script>
