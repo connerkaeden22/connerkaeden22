@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="1000" height="1000"> </canvas>
+</body>
+
+</html>
+<script>
+  document.getElementById("canvas")
+  document.addEventListener("mousemove", touchBalls)
+  var canvas = document.getElementById("canvas")
+  var ctx = canvas.getContext("2d")
+  var mouseX = 100
+  var mouseY = 100
+  var enemyX = []
+  var enemyY = []
+  var color = []
+  var enemyXSpeed = []
+  var enemyYSpeed = []
+  // R is short for radius
+  var enemyR = []
+  var mouseR = 10
+  var helf = 1
+  for (var i = 0; i < 101; i = i + 1) {
+    enemyX.push(Math.random() * 1 - 200)
+    enemyY.push(Math.random() * 1 + 400)
+    enemyXSpeed[i] = Math.random() * 15
+    enemyYSpeed[i] = Math.random() * 30 - 30 * 0.5
+    color[i] = "hsl(" + Math.random() * 360 + ",100%,50%)"
+    enemyR[i] = Math.random() * 60
+  }
+  function touchBalls(e) {
+    mouseX = e.pageX
+    mouseY = e.pageY
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, 2000, 2000)
+    if (helf = 1) {
+      ctx.beginPath()
+      ctx.arc(mouseX, mouseY, mouseR, 0, 7)
+      ctx.fill()
+    }
+      for (var i = 0; i < enemyX.length; i = i + 1) {
+       if (helf = 1){ ctx.fillStyle = color[i]
+        ctx.beginPath()
+        ctx.arc(enemyX[i], enemyY[i], enemyR[i], 0, Math.PI * 2)
+        ctx.fill()
+        enemyX[i] += enemyXSpeed[i]
+        enemyY[i] += enemyYSpeed[i]
+       }
+        var a = mouseX - enemyX[i]
+        var b = mouseY - enemyY[i]
+        var dist = Math.sqrt(a * a + b * b)
+        if (mouseR + enemyR[i] >= dist) {
+          if (mouseR >= enemyR[i]) {
+            mouseR += 2
+            enemyX[i] = (Math.random() - 200)
+            enemyY[i] = (Math.random() + 400)
+            enemyXSpeed[i] = Math.random() * 15
+            enemyYSpeed[i] = Math.random() * 30 - 30 * 0.5
+            color[i] = "hsl(" + Math.random() * 360 + ",100%,50%)"
+            enemyR[i] = Math.random() * 60
+          } else{ 
+           var helf = 0
+          }
+
+        }
+
+
+        if (enemyX[i] >= 1000) {
+          enemyX[i] = (Math.random() - 200)
+          enemyY[i] = (Math.random() + 400)
+          enemyXSpeed[i] = Math.random() * 15
+          enemyYSpeed[i] = Math.random() * 30 - 30 * 0.5
+          color[i] = "hsl(" + Math.random() * 360 + ",100%,50%)"
+          enemyR[i] = Math.random() * 60
+
+        }
+        if (enemyY[i] >= 1000) {
+          enemyX[i] = (Math.random() - 200)
+          enemyY[i] = (Math.random() + 400)
+          enemyXSpeed[i] = Math.random() * 15
+          enemyYSpeed[i] = Math.random() * 30 - 30 * 0.5
+          color[i] = "hsl(" + Math.random() * 360 + ",100%,50%)"
+          enemyR[i] = Math.random() * 60
+        }
+        if (enemyY[enemyX] <= 1000) {
+          enemyX[i] = (Math.random() - 200)
+          enemyY[i] = (Math.random() + 400)
+          enemyXSpeed[i] = Math.random() * 15
+          enemyYSpeed[i] = Math.random() * 30 - 30 * 0.5
+          color[i] = "hsl(" + Math.random() * 360 + ",100%,50%)"
+          enemyR[i] = Math.random() * 60
+        }
+
+      }
+    }
+
+
+
+    var interval = setInterval(draw, 30)
+</script>

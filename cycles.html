@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> cycles </title>
+</head>
+
+<body>
+  <canvas id="canvas" width="1350" height='550'> </canvas>
+</body>
+
+</html>
+<script>
+  document.addEventListener("keydown", right)
+  document.addEventListener("keydown", down)
+  document.addEventListener("keydown", up)
+  document.addEventListener("keydown", left)
+  document.addEventListener("keydown", blueRight)
+  document.addEventListener("keydown", blueDown)
+  document.addEventListener("keydown", blueUp)
+  document.addEventListener("keydown", blueLeft)
+  document.addEventListener("keydown", shiftRed)
+  document.addEventListener('keydown', shiftBlue)
+ const canvas = document.getElementById("canvas")
+ let x = 1
+ let y = 1
+ let x2 = 1250
+ let y2 = 1
+ let w = 30
+ let h = 10
+ let w2 = 30
+ let h2 = 10
+ let xspeed = 0
+ let yspeed = 0
+ let xspeed2 = 0
+ let yspeed2 = 0
+ const speedComp = (x2 - x) + (y2 - y)
+ const ctx = canvas.getContext("2d")
+
+
+  function draw() {
+    //ctx.clearRect(0, 0, 2000, 2000)
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(x, y, w, h)
+    ctx.fillStyle = 'red'
+    ctx.fillRect(x2, y2, w2, h2)
+
+    x = x + xspeed
+    y = y + yspeed
+    x2 = x2 + xspeed2
+    y2 = y2 + yspeed2
+
+  }
+  setInterval(draw, 30);
+
+  function right(e) {
+    if (event.key === "d") {
+      yspeed = 0
+      xspeed = 5
+
+    }
+  }
+  function down(e) {
+    if (event.key === "s") {
+      yspeed = 5
+      xspeed = 0
+    }
+  }
+  function up(e) {
+    if (event.key === "w") {
+      yspeed = -5
+      xspeed = 0
+    }
+  }
+  function left(e) {
+    if (event.key === "a") {
+      yspeed = 0
+      xspeed = -5
+    }
+  }
+  function blueRight(e) {
+    if (event.key === "ArrowRight") {
+      yspeed2 = 0
+      xspeed2 = 5
+
+    }
+  }
+  function blueDown(e) {
+    if (event.key === "ArrowDown") {
+      yspeed2 = 5
+      xspeed2 = 0
+    }
+  }
+  function blueUp(e) {
+    if (event.key === "ArrowUp") {
+      yspeed2 = -5
+      xspeed2 = 0
+    }
+  }
+  function blueLeft(e) {
+    if (event.key === "ArrowLeft") {
+      yspeed2 = 0
+      xspeed2 = -5
+    }
+  }
+  function shiftRed(e){
+    if(event.key === "r"){
+    x2 = 1250
+    y2 = 1
+    xspeed2 = 0
+    yspeed2 = 0
+  }
+}
+  function shiftBlue(e){
+    if(event.key === "b"){
+    x = 1
+    y = 1
+    xspeed = 0
+    yspeed = 0
+  }
+}
+
+</script>

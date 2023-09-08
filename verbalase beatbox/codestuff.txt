@@ -7,3 +7,37 @@ return false}
 }
 
 
+document.addEventListener("event-type", function)
+
+objects: curly brackets
+var car = { 
+    doors: 2,
+    name: "telsa",
+    fast: true",
+}
+
+objects - made of key-value pairs
+name: "mr. car" 
+key     value
+value pair 
+also called a property
+
+how to get stuff from an object: 
+dot notation!!!
+car.name is "mr. car"
+car["name" is "mr. car"]
+
+
+
+var xspeed = 1
+var yspeed = 1
+setInterval(box, 5)
+function box(){
+    ctx.clearRect(0, 0, 2000, 2000)
+    ctx.fillRect(x, y, w, h)
+    x = x + xspeed
+    y = y + yspeed
+}
+
+to find stuff like location, we need to find distance
+we know things are touching if their x's and y's are in a certain radius of each other

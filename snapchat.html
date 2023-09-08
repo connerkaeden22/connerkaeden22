@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Top-Down Shooter</title>
+<style>
+	canvas {
+		border: 1px solid black;
+	}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="640" height="480"></canvas>
+<script>
+		// Get the canvas element and its context
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext('2d');
+
+		// Set up the player character
+	var player = {
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		radius: 10,
+		speed: 5
+	};
+
+		// Set up the enemy characters
+	var enemies = [];
+	var numEnemies = 10;
+	for (var i = 0; i < numEnemies; i++) {
+		enemies.push({
+			x: Math.random() * canvas.width,
+			y: Math.random() * canvas.height,
+			radius: 10,
+			speed: 2
+		});
+	}
+
+		// Set up the game loop
+	function loop() {
+			// Clear the canvas
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			// Move the player character
+		if (keys.ArrowUp) {
+			player.y -= player.speed;
+		}
+		if (keys.ArrowDown) {
+			player.y += player.speed;
+		}
+		if (keys.ArrowLeft) {
+			player.x -= player.speed;
+		}
+		if (keys.ArrowRight) {
+			player.x += player.speed;
+		}
+
+			// Draw the player character
+		ctx.beginPath();
+		ctx.arc(player.x, player.y, player.radius, 0, 2 * Math.PI);
+		ctx.fillStyle = 'blue';
+		ctx.fill();
+
+			// Draw the enemy characters
+		for (var i = 0; i < enemies.length; i++) {
+			ctx.beginPath();
+			ctx.arc(enemies[i].x, enemies[i].y, enemies[i].radius, 0, 2 * Math.PI);
+			ctx.fillStyle = 'red';
+			ctx.fill();
+		}
+
+			// Request the next frame of the game loop
+		window.requestAnimationFrame(loop);
+	}
+
+		// Start the game loop
+	window.requestAnimationFrame(loop);
+</script>
+    

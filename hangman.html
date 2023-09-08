@@ -1,0 +1,110 @@
+<script>
+   // okay so in hangman there is a set of letters (probably use an array/string) that the user
+   // has to guess correctly. if they guess wrong, then a body part is added to the gallow and 
+   // the stick figure is slowly hung.
+   // the way this could work in code is to have a function trigger a for loop to see if the letter entered
+   // is correct (part of the string) or incorrect (not part of the string) and add a body part to the
+   // gallow until the stickman is hung. you could do function guess(e){} (e is the letter being guessed
+   // but as a parameter.) inside the function there is a for loop that checks if e matches any of the
+   // letters in an array and then decides if its correct or incorrect
+
+   // create an array for the letters of the word
+   // create a variable for how many chances you have left, and when it equals 0 you D I E
+   // create a function that takes in a letter as input --
+   // put a for loop in said function that runs through the array of letters
+   // put an if statement in said for loop that checks if the letter = the current letter in the array
+   // if it isnt, tell them it's wrong and substract 1 from the chances variable
+   // if it is, put the letter in some sorta spot idunno
+   var letter = prompt()
+   var word = "gay"
+   var chances = 3
+   for (var i = 0; i < word.length; i++) {
+      if (letter = i) {
+         console.log(yipee!!)
+      } else {
+         console.log(wrong letter goofy)
+         chances - 1
+      }
+
+   }
+
+
+
+
+
+
+
+
+   var letter = prompt()
+   var word = "gay"
+   var chances = 3
+   for (var i = 0; i < word.length; i++) {
+      var result = ""
+      if (letter === word[i]) {
+         result = "yipee!!!!"
+      } else {
+         result = "wrong letter goofy"
+         chances -= 1
+      }
+   } console.log(result)
+
+
+   var letter = prompt()
+   var word = "gay"
+   var chances = 3
+   var result = ""
+   for (var i = 0; i < word.length; i++) {
+      if (letter === word[i]) {
+         result = "yipee!!!!"
+      } else {
+         result = "wrong letter goofy"
+         chances -= 1
+      }
+   } console.log(result)
+
+
+   var correct = []
+   correct[i] = letter[i]
+
+
+
+
+   var letter = prompt()
+   var word = "gay"
+   var yayletters = []
+   while (yayletters < word.length) {
+      for (var i = 0; i < word.length; i++)
+         yayletters[i] = (letter)
+   }
+   console.log(yayletters)
+
+
+   var letter = prompt()
+   var word = "greengay"
+   var gameplay = "yes"
+   var yayletters = []
+   while (gameplay) {
+      for (var i = 0; i < word.length; i++) {
+         if (letter === word[i]) {
+            yayletters[i] = (letter)
+         }
+
+      }
+      alert(yayletters)
+   }
+
+
+   var letter
+   var word = "greengay"
+   var gameplay = true
+   var yayletters = []
+   while (gameplay) {
+      letter = prompt()
+      for (var i = 0; i < word.length; i++) {
+         if (letter === word[i]) {
+            yayletters[i] = (letter)
+         }
+
+      }
+      alert(yayletters)
+   }
