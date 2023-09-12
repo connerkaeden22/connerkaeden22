@@ -13,15 +13,24 @@
 
 </html>
 <script>
+
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
     var x = 0
     var y = 0
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 3; j++) {
-            x = x + 80
-            y = y + 20
-            ctx.fillRect(x, y, 50, 50)
+    function draw() {
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+
+                ctx.fillStyle = "black"
+                ctx.fillRect(i * 55, j * 55, 50, 50)
+
+            }
         }
+        ctx.fillStyle = "red"
+        ctx.fillRect(x, y, 50, 50)
     }
+
+
+    setInterval(draw, 10)
 </script>
